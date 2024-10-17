@@ -125,4 +125,3 @@ print (comparar <= 10)
 print (comparar >= 10)
 print (comparar != 10)
 '''
-
