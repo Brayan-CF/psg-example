@@ -105,6 +105,7 @@ print (a % b)
 print ("División entera")
 print (a // b)
 '''
+
 # Operaciones más complejas
 '''
 minutos = 300
@@ -114,6 +115,7 @@ print (horas)
 '''
 
 # Operadores de compraracion
+'''
 print ("Operadores de comparación")
 comparar = 10
 print (comparar < 10)
@@ -122,3 +124,5 @@ print (comparar == 10)
 print (comparar <= 10)
 print (comparar >= 10)
 print (comparar != 10)
+'''
+
