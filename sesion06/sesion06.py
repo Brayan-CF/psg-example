@@ -187,10 +187,17 @@ print ((numero % 3 ==0) and (numero % 5 ==0) and (numero % 2 !=0)) '''
 
 # CORTOCIRCUITOS
 # Cortocircuitos con And
+'''
 print ("Cortocircuito con operador and")
 x = 1
 y = 0
-print (x > 2 and (x/y) > 2)
-print (x > 0 and (x/y) > 0)
+print (x > 2 and (x/y) > 2) # no existe la division con 0
+print (x > 0 and (x/y) > 0) '''
 
 # Cortocircuitos con Or
+'''
+print ("Cortocircuito con operador or")
+x = 1
+y = 0
+print (x > 0 or (x/y) > 0) # no existe la division con 0
+print (x > 2 or (x/y) > 2) '''
