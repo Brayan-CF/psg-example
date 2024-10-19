@@ -199,5 +199,5 @@ print (x > 0 and (x/y) > 0) '''
 print ("Cortocircuito con operador or")
 x = 1
 y = 0
-print (x > 0 or (x/y) > 0) # no existe la division con 0
+print (x > 0 or (x/y) > 0) # no existe la division con 0 
 print (x > 2 or (x/y) > 2) '''
