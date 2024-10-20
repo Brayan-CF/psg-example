@@ -265,8 +265,9 @@ formateado = cadena.format(pais=pais, ciudad=ciudad)
 print (cadena)
 print (formateado) '''
 # formaterar con s-strings
+'''
 print ("Función format con f-string")
 moneda = "Boliviano"
 pais = "Bolivia"
 formateado = f"La moneda de {pais} es el {moneda}"
-print (formateado)
+print (formateado)'''
