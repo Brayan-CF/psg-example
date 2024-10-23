@@ -1,4 +1,18 @@
 ## Diagrama de clases
+
+>**Usuarios de DB, nosql**
+```mermaid
+classDiagram
+    class Usuario {
+        - _id: int
+        - nombre: String
+        - email: String
+        - contraseña: Sting
+        - iniciarSesion: String
+    }
+```
+
+>**entidad relacion**
 ```mermaid
 classDiagram
     class Usuario {
@@ -107,6 +121,50 @@ sequenceDiagram
     deactivate Sistema
 
 ```
+>**para gestion de menu**
+```mermaid
+sequenceDiagram
+    participant Administrador
+    participant Sistema
+
+    Administrador->>Sistema: Agregar nuevo plato
+    activate Sistema
+    Sistema-->>Administrador: Confirmar adición o mostrar error
+    deactivate Sistema
+
+    Administrador->>Sistema: Modificar plato existente
+    activate Sistema
+    Sistema-->>Administrador: Confirmar modificación o mostrar error
+    deactivate Sistema
+
+    Administrador->>Sistema: Eliminar plato
+    activate Sistema
+    Sistema-->>Administrador: Confirmar eliminación o mostrar error
+    deactivate Sistema
+```
+>**para gestion de reservas**
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant Sistema
+    participant Administrador
+
+    Cliente->>Sistema: Realizar reserva
+    activate Sistema
+    Sistema-->>Cliente: Confirmar reserva o mostrar disponibilidad
+    deactivate Sistema
+
+    Administrador->>Sistema: Consultar reservas
+    activate Sistema
+    Sistema-->>Administrador: Mostrar lista de reservas
+    deactivate Sistema
+
+    Administrador->>Sistema: Cancelar reserva
+    activate Sistema
+    Sistema-->>Administrador: Confirmar cancelación
+    deactivate Sistema
+```
+
 
 ## Diagrama de secuencia
 
@@ -134,4 +192,26 @@ sequenceDiagram
         Tienda->>Cliente: Informar error de pago
     end
     deactivate Tienda
+```
+
+>**para la utenticaion dcon emai**
+```mermaid
+sequenceDiagram
+    participant Usuario
+    participant Aplicación
+    participant API Autenticación
+
+    Usuario->>Aplicación: Ingresar email y contraseña
+    activate Aplicación
+    Aplicación->>API Autenticación: Verificar credenciales
+    activate API Autenticación
+    API Autenticación-->>Aplicación: Usuario autenticado/no autenticado
+    deactivate API Autenticación
+    alt Usuario autenticado
+        Aplicación->>Usuario: Bienvenido
+        Aplicación->>Aplicación: Cargar datos de usuario
+    else Usuario no autenticado
+        Aplicación->>Usuario: Credenciales incorrectas
+    end
+    deactivate Aplicación
 ```
