@@ -312,6 +312,7 @@ print (3 not in lista)
 print (6 not in lista)
 print ([1,2,3] in lista)'''
 # is, is not, (para comparar soi son la misma lista)
+'''
 print ("Comparación de listas")
 lista1 = [1,2,3,4,5]
 lista2 = [1,2,3,4,5]
@@ -319,4 +320,42 @@ lista3 = [1,2]
 print (lista1, lista2, lista3)
 print (lista1 is lista2)
 print (lista1 is not lista2)
-print (lista3 is lista1)
+print (lista3 is lista1)'''
+
+# Operadores de compracion
+# < y <=
+'''
+print ("Menor y Menor Igual que")
+print ([1,2,3] <= [1,2,4])
+print ([1,2,3] <= [1,2,2,2])
+print ([1,2,3] <= [2])
+print ([1,2,3] < [1,2,3])
+print ([1,2,3] <= [1,2,3])'''
+# > y >=
+'''
+print ("Mayor y Mayor Igual que")
+print ([1,2,3] >= [1,2,4])
+print ([1,2,3] >= [1,2,2,2])
+print ([1,2,3] >= [2])
+print ([1,2,3] > [1,2,3])
+print ([1,2,3] >= [1,2,3])'''
+# == y !=
+'''
+print ("Igual y Desigual que")
+print ([1,2,3] == [1,2,3])
+print ([1,2,3] == [1,2,4])
+print ([1,2,3] != [1,2,3])
+print ([1,2,3] != [1,2,4])'''
+
+# Lista Anidadas
+'''
+print ("Listas anidadas")
+lista = [1,2,3,[4,5,6]]
+print (lista)
+print (type(lista))
+valor_lista = lista[3]
+print (valor_lista)
+print (type(valor_lista))
+valor = valor_lista[1]
+print (valor)
+print (type(valor))'''
