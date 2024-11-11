@@ -12,3 +12,20 @@ comidas = {"carne" : {"animales": ["león", "tigre"]},
     Elimina la comida 'frutas' del diccionario de comidas
 
 '''
+comidas = {
+    "carne" : {"animales": ["león", "tigre"]}, 
+    "frutas" : {"animales": ["mono", "elefante"]}
+}
+comidas.update(
+
+    helado = 'vanilla',
+    cereales = 'chocapic',
+    jugos = 'linaza',
+    dulces = 'chocolate'
+)
+
+existe = 'carne' in comidas
+print(existe)
+Carne = comidas.pop('frutas')
+print(comidas)
+
