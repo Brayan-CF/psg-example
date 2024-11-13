@@ -1,5 +1,6 @@
 ## Diagrama de clases
-
+secucnia, procesos, clases
+---
 >**Usuarios de DB, nosql**
 ```mermaid
 classDiagram
@@ -168,32 +169,6 @@ sequenceDiagram
 
 ## Diagrama de secuencia
 
-```mermaid
-sequenceDiagram
-    participant Cliente
-    participant Tienda
-    participant PasarelaPago
-
-    Cliente->>Tienda: Buscar producto
-    activate Tienda
-    Tienda->>Cliente: Mostrar resultados
-    Cliente->>Tienda: Seleccionar producto
-    Tienda->>Cliente: Mostrar detalles del producto
-    Cliente->>Tienda: Agregar al carrito
-    Cliente->>Tienda: Ir a pagar
-    activate PasarelaPago
-    Tienda->>PasarelaPago: Procesar pago
-    PasarelaPago-->>Tienda: Pago exitoso/fallido
-    deactivate PasarelaPago
-    alt Pago exitoso
-        Tienda->>Cliente: Confirmar compra
-        Tienda->>Cliente: Enviar confirmación por email
-    else Pago fallido
-        Tienda->>Cliente: Informar error de pago
-    end
-    deactivate Tienda
-```
-
 >**para la utenticaion dcon emai**
 ```mermaid
 sequenceDiagram
@@ -215,3 +190,117 @@ sequenceDiagram
     end
     deactivate Aplicación
 ```
+---
+# Segundo Sprint
+<br>
+<br>
+
+---
+#### Diagramas de secuencia.
+>**Para el registro de usuarios**
+```mermaid
+sequenceDiagram
+    participant Usuario
+    participant SistemaWeb as Sistema Bambu
+    participant BaseDatos as Base de Datos
+
+    Usuario->>SistemaWeb: Inicia el registro
+    SistemaWeb->>Usuario: Solicita datos (nombre, correo, etc.)
+    Usuario->>SistemaWeb: Envia datos del registro
+    SistemaWeb->>BaseDatos: Verifica si el correo ya está registrado
+    BaseDatos->>SistemaWeb: Responde con el estado (registrado OK/ocurrio un error! )
+    SistemaWeb->>Usuario: Informa si el correo está disponible o no
+    alt Correo disponible
+        SistemaWeb->>BaseDatos: Guarda los datos del usuario
+        BaseDatos->>SistemaWeb: Datos registrados con éxito
+        SistemaWeb->>Usuario: Muestra mensaje de registro exitoso
+    else Correo no disponible
+        SistemaWeb->>Usuario: Muestra mensaje de error (correo ya registrado)
+    end
+
+```
+>**Para la pasarela de pagos**
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant Sistema Bambu
+    participant PasarelaPago
+
+    Cliente->>Sistema Bambu: Buscar producto
+    activate Sistema Bambu
+    Sistema Bambu->>Cliente: Mostrar resultados
+    Cliente->>Sistema Bambu: Seleccionar producto
+    Sistema Bambu->>Cliente: Mostrar detalles del producto
+    Cliente->>Sistema Bambu: Agregar al carrito
+    Cliente->>Sistema Bambu: Ir a pagar
+    activate PasarelaPago
+    Sistema Bambu->>PasarelaPago: Procesar pago
+    PasarelaPago-->>Sistema Bambu: Pago exitoso/fallido
+    deactivate PasarelaPago
+    alt Pago exitoso
+        Sistema Bambu->>Cliente: Confirmar compra
+        Sistema Bambu->>Cliente: Enviar confirmación por email
+    else Pago fallido
+        Sistema Bambu->>Cliente: Informar error de pago
+    end
+    deactivate Sistema Bambu
+```
+>**Para la verificacion del pago**
+```mermaid
+sequenceDiagram
+    participant Usuario
+    participant SistemaWeb as Sistema Bambu
+    participant SistemaPago as Sistema de Pago "Stripe"
+    participant BaseDatos as Base de Datos 
+
+    Usuario->>SistemaWeb: Inicia el pago
+    SistemaWeb->>Usuario: Solicita datos de pago (tarjeta D/C)
+    Usuario->>SistemaWeb: Envía datos de pago
+    SistemaWeb->>SistemaPago: Envía detalles de pago
+    SistemaPago->>SistemaPago: Verifica información del pago
+    alt Pago aprobado
+        SistemaPago->>SistemaWeb: Responde con aprobación de pago
+        SistemaWeb->>BaseDatos: Actualiza estado del pedido (pagado)
+        BaseDatos->>SistemaWeb: Estado actualizado
+        SistemaWeb->>Usuario: Muestra confirmación de pago y pedido
+    else Pago rechazado
+        SistemaPago->>SistemaWeb: Responde con rechazo de pago
+        SistemaWeb->>Usuario: Muestra mensaje de error (pago fallido)
+    end
+
+```
+
+>**Para el proceso de compra de comida**
+```mermaid
+sequenceDiagram
+    participant Usuario
+    participant SistemaWeb as Sistema Bambu
+    participant BaseDatos as Base de Datos
+    participant SistemaPago as Sistema de Pago
+
+    Usuario->>SistemaWeb: Inicia sesión
+    SistemaWeb->>Usuario: Muestra menú de comidas
+    Usuario->>SistemaWeb: Selecciona productos y agrega al carrito
+    SistemaWeb->>Usuario: Muestra el carrito de compras
+    Usuario->>SistemaWeb: Revisa el carrito y confirma compra
+    SistemaWeb->>BaseDatos: Valida disponibilidad de productos
+    BaseDatos->>SistemaWeb: Responde disponibilidad
+    SistemaWeb->>Usuario: Muestra opción de pago
+    Usuario->>SistemaWeb: Ingresa datos de pago (Stripe)
+    SistemaWeb->>SistemaPago: Envía datos de pago
+    SistemaPago->>SistemaWeb: Responde con resultado de pago (realizado/fallido)
+    SistemaWeb->>Usuario: Muestra resultado de la transacción
+    SistemaWeb->>BaseDatos: Actualiza estado de la compra
+    BaseDatos->>SistemaWeb: Compra registrada
+
+```
+
+---
+#### Diagramas Para casos de uso
+
+```mermaid
+
+
+```
+
+---
