@@ -296,11 +296,53 @@ sequenceDiagram
 ```
 
 ---
-#### Diagramas Para casos de uso
+# Para el Quinto Hito - Analisi y Diseño II
+<br>
 
+>**Diagrama de secucnia: para registro e inicio de sesion, antes de pedir un plato.**
 ```mermaid
+sequenceDiagram
+    participant Usuario
+    participant Sistema
+    
+    Usuario->>Sistema: Visitar la página principal (comida)
+    Sistema->>Usuario: Mostrar opción de "Iniciar sesión" o "Registrarse"
+    
+    Usuario->>Sistema: Elige "Registrarse"
+    Sistema->>Usuario: Solicitar datos (nombre, correo, teléfono)
+    Usuario->>Sistema: Enviar datos de registro
+    Sistema->>Sistema: Validar correo electrónico
+    Sistema->>Sistema: Cifrar datos sensibles
+    Sistema->>Usuario: Confirmar registro exitoso
 
+    Usuario->>Sistema: Elige "Iniciar sesión"
+    Sistema->>Usuario: Solicitar correo y contraseña
+    Usuario->>Sistema: Enviar correo y contraseña
+    Sistema->>Sistema: Validar credenciales
+    Sistema->>Usuario: Confirmar inicio de sesión
+    
+    Usuario->>Sistema: Realizar pedido de comida
+    Sistema->>Usuario: Mostrar menú de comida
+    Usuario->>Sistema: Seleccionar artículos para el pedido
+    Sistema->>Usuario: Confirmar pedido
 
 ```
 
----
+>**Diagrama de secucnia: para el contacto del WhatsApp**
+```mermaid
+sequenceDiagram
+    participant Cliente
+    participant Sistema 'Bambu'
+    participant WhatsApp
+
+    Cliente->>Sistema: Ver botón de WhatsApp
+    Sistema->>Cliente: Mostrar botón de WhatsApp
+    
+    Cliente->>Sistema: Hacer clic en el botón de WhatsApp
+    Sistema->>WhatsApp: Redirigir al cliente a la conversación
+    WhatsApp->>Cliente: Mostrar conversación de WhatsApp
+
+```
+>**Diagrama de casos de uso: historia Nº 15**
+
+>**Diagrama de casoso de uso: historia Nº 16**
