@@ -59,7 +59,7 @@ diccionario = {'perro': '🐶', 'gato': '🐱', 'ave': '🐦'}
 print(diccionario)
 print(type(diccionario))
 '''
-# diccionario mixto
+# diccionario mixto --- CONTINUAMOS AQUI -----
 '''
 print ("Diccionario mixto")
 diccionario = {1:"ID-XXXXX", "edad": 3, 'animal': '🐶' , ("John","Doe"): 6917222722, "salvaje": False}
