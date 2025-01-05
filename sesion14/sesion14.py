@@ -30,3 +30,10 @@ def nombre_funcion():
 nombre_funcion()
 print (type(nombre_funcion))
 '''
+# las funciones debeb ser definas antes de ser llamadas.
+'''
+def nombre_funcion():
+    print ("Bloque de código")
+
+nombre_funcion()
+'''
