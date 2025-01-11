@@ -343,6 +343,4 @@ sequenceDiagram
     WhatsApp->>Cliente: Mostrar conversación de WhatsApp
 
 ```
->**Diagrama de casos de uso: historia Nº 15**
 
->**Diagrama de casoso de uso: historia Nº 16**
